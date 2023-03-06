@@ -1,0 +1,46 @@
+Sub custeio()
+    Dim soma, porcentagem_a, porcentagem_b, a, b, materia, ggp, mo
+    
+    Range("a1").Value = "Produto"
+    Range("b1").Value = "Quantidade"
+    Range("c1").Value = "Porcentagem"
+    Range("d1").Value = "Materia prima"
+    Range("e1").Value = "Gastos gerais"
+    Range("f1").Value = "Mão de obra direta"
+    Range("g1").Value = "Custo total"
+    Range("a2").Value = "A"
+    Range("a3").Value = "B"
+    Range("a4").Value = "T"
+    Range("c4").Value = "100"
+    
+    a = Range("b2").Value
+    b = Range("b3").Value
+    
+    soma = a + b
+    Range("b4").Value = soma
+    
+    porcentagem_a = ((a) * 100) / soma
+    Range("c2").Value = porcentagem_a
+    porcentagem_b = ((b) * 100) / soma
+    Range("c3").Value = porcentagem_b
+    
+    materia = Range("d4").Value
+    Range("d2").Value = materia * (porcentagem_a * 1 / 100)
+    Range("d3").Value = materia * (porcentagem_b * 1 / 100)
+    
+    ggp = Range("e4").Value
+    Range("e2").Value = ggp * (porcentagem_a * 1 / 100)
+    Range("e3").Value = ggp * (porcentagem_b * 1 / 100)
+    
+    mo = Range("f4").Value
+    Range("f2").Value = mo * (porcentagem_a * 1 / 100)
+    Range("f3").Value = mo * (porcentagem_b * 1 / 100)
+    
+    Range("g2").Value = Range("d2").Value + Range("e2").Value + Range("f2").Value
+    Range("g3").Value = Range("d3").Value + Range("e3").Value + Range("f3").Value
+    Range("g4").Value = materia + ggp + mo
+End Sub
+Sub limpar()
+    Range("b2:g4").Value = ""
+
+End Sub
